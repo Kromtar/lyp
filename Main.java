@@ -1,23 +1,30 @@
 import java.util.Scanner;
 
-import cl.uai.lyp.*;
-
 public class Main {
   
   public static void main(String[] args) {
+    Tragos seleccionado = null;
     // 1. creamos el scanner que leera los datos del usuario
     Scanner scanner = new Scanner(System.in);
     // 2. interactuamos con el usuario
     System.out.println("Ingrese la cantidad de calorías que puede consumir: ");
     Double calorias = scanner.nextDouble();
-    // 3. Preguntamos que tipo de alcohol le gusta más
-    System.out.println("¿Qué trago prefieres tomar?");
-    for (Tragos trago: Tragos.values()) {
-      System.out.println(trago.ordinal() + " - " + trago.name().replace("_", " "));
-    }
-    // 4. obtenemos la opcion del usuario
-    Integer opcion = scanner.nextInt();
-    Tragos seleccionado = Tragos.values()[opcion];
+    do{
+      // 3. Preguntamos que tipo de alcohol le gusta más
+      System.out.println("¿Qué trago prefieres tomar?");
+      for (Tragos trago: Tragos.values()) {
+        System.out.println(trago.ordinal() + " - " + trago.name().replace("_", " "));
+      }
+      // 4. obtenemos la opcion del usuario
+      Integer opcion = scanner.nextInt();
+      //Tragos seleccionado = Tragos.values()[opcion];
+       try{
+          seleccionado = Tragos.values()[opcion];
+        }catch (ArrayIndexOutOfBoundsException e) {
+          System.out.print("Esa opcion no es valida \n");
+        }
+    }while(seleccionado==null);
+   
     // 5. creamos una instancia de trago
     Trago trago = new AguaTonica();
     switch(seleccionado) {
