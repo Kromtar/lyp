@@ -34,7 +34,7 @@ public class Main {
         trago = new Espumante();
         break;
       case VINO_TINTO:
-        trago = new VinoTinto();
+        //trago = new VinoTinto();
         break;
       case VINO_BLANCO:
         trago = new VinoBlanco();
