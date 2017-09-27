@@ -17,6 +17,10 @@ public class Trago {
    * 
    **/
    
+  public Trago(Double kcal){
+	  this.calorias200Ml = kcal;
+  }
+   
   // método que calcula la cantidad de alcohol a tomar para llegar a las calorias
   public Double calculaCantidad(Double calorias) {
     return (calorias * 200)/calorias200Ml;
